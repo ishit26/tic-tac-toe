@@ -1,3 +1,7 @@
+#library import
+import random
+
+
 #TODO: code to display board
 
 def display_board(board):
@@ -24,7 +28,27 @@ def place_marker(board, marker, position):
     board[position] = marker
     
 #TODO: code to which player should start game player 1 or player 2
+
+def toss():
+    flip = random.randint(0, 1) == 0
+    if flip == 0:
+        return 'player 1'
+    else:
+        return 'player 2'
+
 #TODO: code to check the win condition
+
+def win(board, marker):
+    if((board[1] == marker and board[2] == marker and board[3] == marker) or 
+       (board[4] == marker and board[5] == marker and board[6] == marker) or
+       (board[7] == marker and board[8] == marker and board[9] == marker) or
+       (board[1] == marker and board[4] == marker and board[7] == marker) or 
+       (board[2] == marker and board[5] == marker and board[8] == marker) or
+       (board[3] == marker and board[6] == marker and board[9] == marker) or
+       (board[1] == marker and board[5] == marker and board[9] == marker )or
+       (board[3] == marker and board[5] == marker and board[7] == marker)):
+        return win(board, marker)
+
 #TODO: code to check available space on board after player put his marker 
 #TODO: code to check weather board is full or not(Draw Condition)
 #TODO: code to take input from player to put the marker on board using keyboard numpad
@@ -34,5 +58,5 @@ print("----------------------------------------------")
 print('Welcome to the Tic-Tac-Toe game')
 print("----------------------------------------------")
 # choose_marker()
-display_board(board)
-place_marker()
+# display_board(board)
+# place_marker()
