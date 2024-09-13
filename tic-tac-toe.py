@@ -63,7 +63,20 @@ def full_board(board):
         return True
     
 #TODO: code to take input from player to put the marker on board using keyboard numpad
+
+def player_choice(board):
+    place = 0
+    while place not in [1, 2, 3, 4, 5, 6, 7, 8, 9] or space(board, place):
+        place = int(input('Choose a position from numpad 1 to 9: '))
+    return place
+    
 #TODO: code to if palyer want to play the game again
+
+def replay():
+    rep = ''
+    while rep not in ['Y', 'N']:
+        rep = input("Do you want to play again? Enter Y or N: ").upper()
+    return (rep == 'Y')
 
 print("----------------------------------------------")
 print('Welcome to the Tic-Tac-Toe game')
