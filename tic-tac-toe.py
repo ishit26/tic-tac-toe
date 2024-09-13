@@ -50,7 +50,18 @@ def win(board, marker):
         return win(board, marker)
 
 #TODO: code to check available space on board after player put his marker 
+
+def space(board, position):
+    return board[position] == ' '
+
 #TODO: code to check weather board is full or not(Draw Condition)
+
+def full_board(board):
+    if "" in board: 
+        return False
+    else: 
+        return True
+    
 #TODO: code to take input from player to put the marker on board using keyboard numpad
 #TODO: code to if palyer want to play the game again
 
