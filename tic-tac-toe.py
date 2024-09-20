@@ -115,7 +115,7 @@ while True:
     board = [''] * 10
     
     #assign the marker to the palyer
-    player_marker1, player_marker2 = player()
+    player1_marker, player2_marker = player()
     
     #randomly which player will go
     turn = toss()
@@ -130,4 +130,50 @@ while True:
         gameOn = False
    
    # Game begins
+    while gameOn:
+        
+        #Player 1 turn's
+        if turn == 'player 1':
+
+            display_board(board)
+            position = player_choice(board)
+            Place(board, position, player1_marker)
+            
+            #check if player won or not
+            if win(board, player1_marker):
+                display_board(board)
+                print('Congratulations!! Player 1 won the game')
+                gameOn = False
+            else:
+                if full_board(board):
+                    display_board(board)
+                    print('Match is draw')
+                    break
+                else:
+                    turn = 'player 2'
+        else:
+            #Player 2 turns's
+            if turn == 'player 2':
+
+                display_board(board)
+                position = player_choice(board)
+                Place(board, position, player2_marker)
+            
+                 #check if player won or not
+                if win(board, player1_marker):
+                    display_board(board)
+                    print('Congratulations!! Player 2 won the game')
+                    gameOn = False
+                else:
+                    if full_board(board):
+                        display_board(board)
+                        print('Match is draw')
+                        break
+                    else:
+                        turn = 'player 1'
     
+    #Ask if want to play again
+    if not replay():
+        break
+    
+    print('Thank you for playing console tic-tac-toe game')
