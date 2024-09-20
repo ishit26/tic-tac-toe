@@ -58,7 +58,7 @@ def space(board, position):
 #TODO: code to check weather board is full or not(Draw Condition)
 
 def full_board(board):
-    if "" in board: 
+    if "" in board[1:]: 
         return False
     else: 
         return True
@@ -119,7 +119,7 @@ while True:
     
     #randomly which player will go
     turn = toss()
-    print(turn + 'will go first!')
+    print(turn + ' will go first!')
     
     #want to continue the game
     playGame = input('Are you ready to play? (y/n): ')
@@ -176,4 +176,4 @@ while True:
     if not replay():
         break
     
-    print('Thank you for playing console tic-tac-toe game')
+print('Thank you for playing console tic-tac-toe game')
