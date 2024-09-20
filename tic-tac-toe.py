@@ -1,5 +1,6 @@
 #library import
-import random
+import random 
+from tkinter import Place
 
 
 #TODO: code to display board
@@ -81,6 +82,52 @@ def replay():
 print("----------------------------------------------")
 print('Welcome to the Tic-Tac-Toe game')
 print("----------------------------------------------")
+
 # choose_marker()
+
+def player():
+    choice = ''
+    while choice != 'X' or choice != 'O':
+        choice = input('Player 1 Choose your marker: X or O: ').upper()
+        if choice == 'X':
+            return 'X','O'
+        else:
+            return 'O', 'X'
+        
 # display_board(board)
+
+def display_board(board):
+    print(board[1] + '|' + board[2] + '|' + board[3])
+    print('-----')
+    print(board[4] + '|' + board[5] + '|' + board[6])
+    print('-----')
+    print(board[7] + '|' + board[8] + '|' + board[9])
+
 # place_marker()
+
+def place_marker(board, marker, position):
+    board[position] = marker
+    
+#Continuous of the game
+
+while True:
+    #reset the board
+    board = [''] * 10
+    
+    #assign the marker to the palyer
+    player_marker1, player_marker2 = player()
+    
+    #randomly which player will go
+    turn = toss()
+    print(turn + 'will go first!')
+    
+    #want to continue the game
+    playGame = input('Are you ready to play? (y/n): ')
+    
+    if playGame.upper() == 'y':
+        gameOn = True
+    else:
+        gameOn = False
+   
+   # Game begins
+    
